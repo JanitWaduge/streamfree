@@ -22,7 +22,6 @@ function getRandomItems(array, count) {
 // Ensure this is outside the App function (only once in the file)
 function PopunderAdScript() {
   useEffect(() => {
-
     // The code below is correct for injecting the script in React:
     const script = document.createElement('script');
     script.type = 'text/javascript';
@@ -83,7 +82,7 @@ function getNavLabels() {
     { key: 'movies', label: 'All Movies' },
     { key: 'tv', label: 'TV Series' },
     { key: 'collections', label: 'Epic Marathons' },
-    { key: 'categories', label: 'Categories' }, // <-- Added
+    { key: 'categories', label: 'Categories' },
     { key: 'about-us', label: 'Meet the Team' }
   ];
 }
@@ -447,26 +446,6 @@ function AppContent() {
               >
                 {tab.label}
               </span>
-              {/* Glowing animated underline for active tab */}
-              {/* Removed sweep-anim span to disable moving line effect */}
-              {/* {activeTab === tab.key && (
-                <span
-                  className="sweep-anim"
-                  style={{
-                    position: 'absolute',
-                    left: '50%',
-                    bottom: '-8px',
-                    transform: 'translateX(-50%)',
-                    width: '80%',
-                    height: '5px',
-                    borderRadius: '3px',
-                    background: 'linear-gradient(90deg, #ff6b6b, #4ecdc4, #ff6b6b)',
-                    boxShadow: '0 0 18px #4ecdc4, 0 2px 12px #ff6b6b',
-                    animation: 'sweep 2.5s linear infinite'
-                  }}
-                />
-              )} */}
-              {/* Subtle glowing border on hover */}
               {hoveredTab === tab.key && activeTab !== tab.key && (
                 <span
                   style={{
@@ -931,7 +910,7 @@ function AppContent() {
                           className="absolute top-2 right-2 text-gray-400 hover:text-red-600 text-2xl font-bold"
                           aria-label="Close"
                         >
-                          &times;
+                          ×
                         </button>
                       </div>
                     </div>
@@ -1013,7 +992,7 @@ function AppContent() {
 // Wrap App with Router in index.js or at the root level if not already done
 function App() {
   return (
-    <Router>
+    <Router basename="/streamfree">
       <AppContent />
     </Router>
   );

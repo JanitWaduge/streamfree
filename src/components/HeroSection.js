@@ -40,12 +40,10 @@ function HeroSection() {
     });
   };
 
-  // Hero section main heading and CTAs
   const heading = 'Dive Into Cinematic Worlds: Adaptive Bitrate, Zero Waiting';
   const cta1 = 'Stream the Action Now';
   const cta2 = 'Get Exclusive Insights';
 
-  // Inline SVG for chevron down
   const ChevronDownIcon = () => (
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
       strokeLinecap="round" strokeLinejoin="round" style={{ display: 'inline', verticalAlign: 'middle' }}>
@@ -54,30 +52,28 @@ function HeroSection() {
   );
 
   return (
-    // Hero Section: Adjust minHeight and height below to control the hero area size
     <div
       className="relative text-white fade-in"
       onMouseMove={handleMouseMove}
       style={{
-        minHeight: '60vh', // Reduced from 90vh to 60vh
-        height: 'auto',    // Let content determine height
+        minHeight: '60vh',
+        height: 'auto',
         overflow: 'hidden',
         fontFamily: 'Montserrat, Arial, sans-serif',
         marginBottom: 0,
-        backgroundColor: '#000', // Add black background to prevent any transparency
+        backgroundColor: '#000',
         position: 'relative',
         zIndex: 1
       }}
     >
-      <div className="absolute inset-0 bg-black w-full h-full" /> {/* Extra black layer to prevent bleed-through */}
+      <div className="absolute inset-0 bg-black w-full h-full" />
       <Slider {...settings}>
         {blockbusters.map((blockbuster) => (
           <div key={blockbuster.id} className="relative" style={{ overflow: 'hidden' }}>
-            {/* Background overlay */}
             <div
               className="absolute inset-0 w-full h-full bg-cover bg-center opacity-60 animate-pulse"
               style={{
-                backgroundImage: `url(${blockbuster.image})`,
+                backgroundImage: `url(${process.env.PUBLIC_URL + blockbuster.image})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 left: 0,
@@ -89,33 +85,30 @@ function HeroSection() {
                 filter: 'blur(2px) brightness(0.7)'
               }}
             />
-            {/* Black overlay for eye-catching banner text */}
             <div
               className="absolute inset-0 w-full h-full"
               style={{
-                background: 'rgba(0,0,0,0.55)', // 55% black overlay
+                background: 'rgba(0,0,0,0.55)',
                 zIndex: 2
               }}
             />
-            {/* Main sharp image */}
             <img
-              src={blockbuster.image}
+              src={process.env.PUBLIC_URL + blockbuster.image}
               alt={blockbuster.title}
               className="absolute inset-0 w-full h-full object-cover"
               style={{
                 zIndex: 1,
-                opacity: 0.5, // Reduced from 0.85 to 0.5 for lower opacity
+                opacity: 0.5,
                 pointerEvents: 'none',
                 userSelect: 'none',
                 width: '100%',
                 height: '100%',
-                objectFit: 'cover', // 'cover' fills the container
-                objectPosition: 'center', // Change to 'top', 'bottom', etc. to focus on a different part
-                imageRendering: 'crisp-edges' // Try 'auto', 'crisp-edges', or 'pixelated'
+                objectFit: 'cover',
+                objectPosition: 'center',
+                imageRendering: 'crisp-edges'
               }}
               draggable={false}
             />
-            {/* Hero content */}
             <div className="relative z-10 text-center py-16 px-6 md:px-16">
               <span className="hero-badge">🔥 Trending Now</span>
               <h1 className="hero-heading text-4xl md:text-5xl mb-2">{heading}</h1>
@@ -127,13 +120,13 @@ function HeroSection() {
                   href="https://www.profitableratecpm.com/y6n4w2y31?key=33ad407aa06609b96bbb176f958e14ad"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-red-600 glow-btn hover:bg-red-700 text-white p-3 rounded transform transition duration-300 hover:scale-105 active:scale-95"
+                  className="bg-red-600 glow-btn hover:bg-red-700 text-white p-3 rounded-lg transform transition-all duration-300 hover:scale-105 active:scale-95"
                 >
                   {cta1}
                 </a>
                 <button
                   onClick={openModal}
-                  className="bg-dark-blue glow-btn hover:bg-blue-800 border border-red-600 text-white p-3 rounded transform transition duration-300 hover:scale-105 active:scale-95"
+                  className="border border-red-600 bg-transparent hover:bg-blue-800 text-white p-3 rounded-lg transform transition-all duration-300 hover:scale-105 active:scale-95"
                 >
                   {cta2}
                 </button>
@@ -150,17 +143,16 @@ function HeroSection() {
           </div>
         ))}
       </Slider>
-
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
-          <div className="bg-gray-900 p-6 rounded-lg max-w-md border border-red-600">
+          <div className="bg-gray-900 p-6 rounded-lg max-w-md border border-gray-600">
             <h2 className="text-2xl font-bold mb-4 text-red-600">{currentBlockbuster.title}</h2>
-            <p><strong>Release Year:</strong> {currentBlockbuster.releaseYear}</p>
-            <p><strong>Cast:</strong> {currentBlockbuster.cast}</p>
-            <p><strong>Synopsis:</strong> {currentBlockbuster.synopsis}</p>
+            <p><strong>Release Year:</strong> {currentBlockbuster.releaseYear || 'N/A'}</p>
+            <p><strong>Cast:</strong> {currentBlockbuster.cast || ''}</p>
+            <p><strong>Synopsis:</strong> {currentBlockbuster.synopsis || ''}</p>
             <button
               onClick={closeModal}
-              className="mt-4 bg-dark-blue hover:bg-blue-800 text-white p-2 rounded w-full transform transition duration-300 hover:scale-105 active:scale-95"
+              className="mt-4 bg-blue-800 hover:bg-blue-600 text-white p-3 rounded-lg w-full transform transition-all duration-300 hover:scale-105 active:scale-95"
             >
               Close
             </button>
