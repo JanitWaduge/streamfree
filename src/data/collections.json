@@ -1,0 +1,63 @@
+[
+  {
+    "id": 1,
+    "title": "Harry Potter Movie Series",
+    "description": "A magical journey through Hogwarts across eight films.",
+    "image": "/assets/collectionimg/harry_potter.jpg",
+    "movies": [
+      {
+        "name": "Harry Potter and the Philosopher's Stone",
+        "downloadLink": "https://cinesubz.co/api-rwjdzuehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdruehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdrwjdzuehbwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0a/njnbkgp45n/"
+      },
+      {
+        "name": "Harry Potter and the Chamber of Secrets",
+        "downloadLink": "https://cinesubz.co/api-rwjdzuehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdruehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdrwjdzuehbwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0a/zjsuubmarc/"
+      },
+      {
+        "name": "Harry Potter and the Prisoner of Azkaban",
+        "downloadLink": "https://cinesubz.co/api-rwjdzuehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdruehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdrwjdzuehbwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0a/wtdml2nhvj/"
+      },
+      {
+        "name": "Harry Potter and the Goblet of Fire",
+        "downloadLink": "https://cinesubz.co/api-rwjdzuehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdruehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdrwjdzuehbwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0a/tooy3sz8fd/"
+      },
+      {
+        "name": "Harry Potter and the Order of the Phoenix",
+        "downloadLink": "https://cinesubz.co/p/download.html"
+      },
+      {
+        "name": "Harry Potter and the Half-Blood Prince",
+        "downloadLink": "https://cinesubz.co/p/download.html"
+      },
+      {
+        "name": "Harry Potter and the Deathly Hallows – Part 1",
+        "downloadLink": "https://cinesubz.co/p/download.html"
+      },
+      {
+        "name": "Harry Potter and the Deathly Hallows – Part 2",
+        "downloadLink": "https://cinesubz.co/p/download.html"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "The Lord of the Rings Trilogy",
+    "description": "An epic fantasy adventure based on the novels by J.R.R. Tolkien, following the journey to destroy the One Ring.",
+    "image": "/assets/collectionimg/lord_of_the_rings.jpg",
+    "movies": [
+      {
+        "name": "The Lord of the Rings: The Fellowship of the Ring",
+        "downloadLink": "https://cinesubz.co/api-rwjdzuehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdruehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdrwjdzuehbwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0a/1zhcbkuz76/"
+      },
+      {
+        "name": "The Lord of the Rings: The Two Towers",
+        "downloadLink": "https://cinesubz.co/api-rwjdzuehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdruehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdrwjdzuehbwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0a/fukzz0p4fj/"
+      },
+      {
+        "name": "The Lord of the Rings: The Return of the King",
+        "downloadLink": "https://cinesubz.co/api-rwjdzuehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdruehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdrwjdzuehbwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0a/7ebkjqalrs/"
+      }
+    ]
+  }
+  
+  ]
