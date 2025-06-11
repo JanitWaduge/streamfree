@@ -1,7 +1,7 @@
 {
-  "homepage": "https://JanitWaduge.github.io/streamfree",
   "name": "movie-links-app",
   "version": "0.1.0",
+  "homepage": "https://JanitWaduge.github.io/streamfree",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
