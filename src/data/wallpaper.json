@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Abstract Neon",
+    "image": "assets/Movies/1.jpg",
+    "ratio": "9:16"
+  },
+  {
+    "id": 2,
+    "title": "City Night",
+    "image": "assets/Movies/2.jpg",
+    "ratio": "9:16"
+  },
+  {
+    "id": 3,
+    "title": "Nature Green",
+    "image": "assets/Movies/3.jpg",
+    "ratio": "9:16"
+  },
+  {
+    "id": 4,
+    "title": "Minimalist Blue",
+    "image": "assets/Movies/4.jpg",
+    "ratio": "9:16"
+  },
+  {
+    "id": 5,
+    "title": "Sunset Glow",
+    "image": "assets/Movies/5.jpg",
+    "ratio": "9:16"
+  },
+  {
+    "id": 6,
+    "title": "Retro Vibes",
+    "image": "assets/Movies/6.jpg",
+    "ratio": "9:16"
+  },
+  {
+    "id": 7,
+    "title": "Dark Mode",
+    "image": "assets/Movies/7.jpg",
+    "ratio": "9:16"
+  },
+  {
+    "id": 8,
+    "title": "Pastel Dream",
+    "image": "assets/Movies/8.jpg",
+    "ratio": "9:16"
+  },
+  {
+    "id": 9,
+    "title": "Golden Hour",
+    "image": "assets/Movies/9.jpg",
+    "ratio": "9:16"
+  },
+  {
+    "id": 10,
+    "title": "Violet Sky",
+    "image": "assets/Movies/10.jpg",
+    "ratio": "9:16"
+  }
+]

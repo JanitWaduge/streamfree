@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "title": "Avengers: Endgame",
+    "description": "The epic conclusion to the Marvel saga.",
+    "image": "assets/Banner/1.jpg",
+    "category": "English",
+    "releaseYear": 2019,
+    "cast": "Robert Downey Jr., Chris Evans",
+    "synopsis": "The Avengers assemble to reverse Thanos' actions and restore balance."
+  },
+  {
+    "id": 2,
+    "title": "Parasite",
+    "description": "A South Korean masterpiece about class disparity.",
+    "image": "assets/Banner/2.jpg",
+    "category": "Korean",
+    "releaseYear": 2019,
+    "cast": "Song Kang-ho, Choi Woo-shik",
+    "synopsis": "A poor family schemes to become employed by a wealthy family."
+  },
+  {
+    "id": 3,
+    "title": "Breaking Bad",
+    "description": "A chemistry teacher turned methamphetamine manufacturer.",
+    "image": "assets/Banner/3.jpg",
+    "category": "English",
+    "releaseYear": 2008,
+    "cast": "Bryan Cranston, Aaron Paul",
+    "synopsis": "A high school chemistry teacher turns to cooking meth to secure his family's future."
+  },
+  {
+    "id": 4,
+    "title": "The Dark Knight",
+    "description": "A gripping tale of Batman's fight against the Joker.",
+    "image": "assets/Banner/4.jpg",
+    "category": "English",
+    "releaseYear": 2008,
+    "cast": "Christian Bale, Heath Ledger",
+    "synopsis": "Batman faces off against the Joker in a battle for Gotham's soul."
+  },
+  {
+    "id": 5,
+    "title": "Inception",
+    "description": "A mind-bending thriller about dreams within dreams.",
+    "image": "assets/Banner/5.jpg",
+    "category": "English",
+    "releaseYear": 2010,
+    "cast": "Leonardo DiCaprio, Joseph Gordon-Levitt",
+    "synopsis": "A thief who enters the dreams of others must perform the impossible task of inception."
+  }
+]

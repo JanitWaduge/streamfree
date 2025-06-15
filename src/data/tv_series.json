@@ -1,0 +1,49 @@
+[
+  {
+    "id": 1,
+    "title": "Breaking Bad",
+    "description": "A high school chemistry teacher turned methamphetamine producer partners with a former student.",
+    "seasons": [
+      {
+        "season": 1,
+        "episodes": [
+          {
+            "episode": 1,
+            "title": "Pilot",
+            "downloadLink": "https://cinesubz.co/api-rwjdzuehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdruehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdrwjdzuehbwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0a/t3uahyhatr/"
+          },
+          {
+            "episode": 2,
+            "title": "Cat's in the Bag...",
+            "downloadLink": "https://cinesubz.co/api-rwjdzuehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdruehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdrwjdzuehbwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0a/gcr0wwlyuq/"
+          }
+        ]
+      }
+    ],
+    "image": "/assets/tv/breaking_bad.jpg",
+    "language": "English",
+    "genre": "Crime",
+    "type": "tv_series"
+  },
+  {
+    "id": 2,
+    "title": "Game of Thrones",
+    "description": "Nine noble families wage war against each other in order to gain control over the mythical land of Westeros.",
+    "seasons": [
+      {
+        "season": 1,
+        "episodes": [
+          {
+            "episode": 1,
+            "title": "Winter Is Coming",
+            "downloadLink": "https://example.com/got/s1e1.mp4"
+          }
+        ]
+      }
+    ],
+    "image": "/assets/tv/game_of_thrones.jpg",
+    "language": "English",
+    "genre": "Fantasy",
+    "type": "tv_series"
+  }
+]
