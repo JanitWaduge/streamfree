@@ -1,1 +1,15 @@
 /* Empty for now, Tailwind handles styling */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px; /* Ensures spacing between grid items */
+  padding: 10px; /* Prevents edge overlap */
+  max-width: 100%; /* Ensures it fits the container */
+  margin: 0 auto; /* Centers the grid */
+}
+
+.grid-item {
+  overflow: hidden; /* Prevents content from overflowing and overlapping */
+  position: relative; /* Ensures proper positioning */
+}
