@@ -22,7 +22,6 @@ function getRandomItems(array, count) {
 // Ensure this is outside the App function (only once in the file)
 function PopunderAdScript() {
   useEffect(() => {
-
     // The code below is correct for injecting the script in React:
     const script = document.createElement('script');
     script.type = 'text/javascript';
@@ -75,15 +74,13 @@ const categories = {
   ]
 };
 
-// Remove context for UI variation toggle
-
 function getNavLabels() {
   return [
     { key: 'home', label: 'Home' },
     { key: 'movies', label: 'All Movies' },
     { key: 'tv', label: 'TV Series' },
     { key: 'collections', label: 'Epic Marathons' },
-    { key: 'categories', label: 'Categories' }, // <-- Added
+    { key: 'categories', label: 'Categories' },
     { key: 'about-us', label: 'Meet the Team' }
   ];
 }
@@ -106,12 +103,11 @@ function AppContent() {
   const [tabTransition, setTabTransition] = useState('');
   const [randomMovies, setRandomMovies] = useState([]);
   const [randomSeries, setRandomSeries] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('languages'); // 'languages' or 'genres'
+  const [selectedCategory, setSelectedCategory] = useState('languages');
   const [selectedCategoryValue, setSelectedCategoryValue] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Move filtered movies logic here, before the useMemo that uses allMovies
   const filteredMovies = movies.filter((movie) =>
     movie.title.toLowerCase().includes(debouncedQuery.toLowerCase()) ||
     movie.description.toLowerCase().includes(debouncedQuery.toLowerCase()) ||
@@ -120,7 +116,6 @@ function AppContent() {
   );
   const allMovies = filteredMovies.filter((item) => item.type === 'movie');
 
-  // Filter movies by selected category (language or genre)
   const filteredByCategory = React.useMemo(() => {
     if (!selectedCategoryValue) return allMovies;
     if (selectedCategory === 'languages') {
@@ -138,9 +133,7 @@ function AppContent() {
     return allMovies;
   }, [allMovies, selectedCategory, selectedCategoryValue]);
 
-  // Initialize random selections
   useEffect(() => {
-    // Only initialize random content once on mount, not on every filteredMovies change
     if (randomMovies.length === 0 && randomSeries.length === 0) {
       const storedMovies = sessionStorage.getItem('randomMovies');
       const storedSeries = sessionStorage.getItem('randomSeries');
@@ -161,13 +154,11 @@ function AppContent() {
         sessionStorage.setItem('randomSeries', JSON.stringify(newRandomSeries));
       }
     }
-    // eslint-disable-next-line
-  }, []); // Only run once on mount
+  }, []);
 
-  // Enhanced tab change handler with smoother animation and navigation
   const handleTabChange = (tab) => {
     if (tab === activeTab) return;
-    setMobileNavOpen(false); // Hide nav on tab click (mobile)
+    setMobileNavOpen(false);
     const transitionTabs = async () => {
       setTabTransition('opacity-0 transform scale-95');
       await new Promise(resolve => setTimeout(resolve, 150));
@@ -175,7 +166,6 @@ function AppContent() {
       setTabTransition('opacity-0 transform scale-105');
       await new Promise(resolve => setTimeout(resolve, 50));
       setTabTransition('opacity-100 transform scale-100');
-      // Always navigate to the correct route
       if (tab === 'about-us') {
         navigate('/about-us');
       } else if (tab === 'home') {
@@ -193,7 +183,6 @@ function AppContent() {
     transitionTabs();
   };
 
-  // Keep activeTab in sync with route for About Us, Home, and Categories
   useEffect(() => {
     if (location.pathname === '/about-us') {
       setActiveTab('about-us');
@@ -202,10 +191,8 @@ function AppContent() {
     } else if (location.pathname === '/') {
       setActiveTab('home');
     }
-    // Don't sync for other tabs to preserve tab transitions
   }, [location.pathname]);
 
-  // Debouncing effect
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedQuery(searchQuery);
@@ -213,12 +200,10 @@ function AppContent() {
     return () => clearTimeout(timer);
   }, [searchQuery]);
 
-  // Handle search button click
   const handleSearchClick = () => {
     setDebouncedQuery(searchQuery);
   };
 
-  // Handle login
   const handleLogin = (e) => {
     e.preventDefault();
     if (username === 'user' && password === 'pass') {
@@ -230,22 +215,18 @@ function AppContent() {
     }
   };
 
-  // Handle logout
   const handleLogout = () => {
     setIsLoggedIn(false);
     setUsername('');
     setPassword('');
   };
 
-  // Handle modal toggle
   const handleModalToggle = (open) => {
     setIsModalOpen(open);
   };
 
-  // The external link to open on first click
   const externalSeriesLink = "https://www.profitableratecpm.com/y6n4w2y31?key=33ad407aa06609b96bbb176f958e14ad";
 
-  // Add global gradient and glassmorphism styles
   const globalStyles = `
     @keyframes gradientBG {
       0% { background-position: 0% 50%; }
@@ -305,7 +286,6 @@ function AppContent() {
       color: #fff !important;
       transition: box-shadow 0.3s, background 0.3s;
     }
-    /* New styles for glowing and fade-in effects */
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -348,12 +328,9 @@ function AppContent() {
     }
   `;
 
-  // Track hovered tab for glowing effect
   const [hoveredTab, setHoveredTab] = useState(null);
-  // Mobile nav state
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
-  // Suggestion logic
   useEffect(() => {
     if (searchQuery.length > 0) {
       const lower = searchQuery.toLowerCase();
@@ -367,7 +344,6 @@ function AppContent() {
     }
   }, [searchQuery]);
 
-  // Helper: Insert ad in the middle of a grid
   function insertAdInGrid(items, adElement, columns = 5) {
     const mid = Math.floor(items.length / 2);
     const result = [...items];
@@ -383,7 +359,6 @@ function AppContent() {
         backgroundSize: '200% 200%'
       }}>
       <style>{globalStyles}</style>
-      {/* Inject popunder ad script globally */}
       <PopunderAdScript />
       <header className="glass-bg p-4 flex flex-wrap items-center justify-between gap-4 border-b border-red-600 fixed top-0 left-0 w-full z-50"
         style={{
@@ -395,7 +370,6 @@ function AppContent() {
           boxShadow: '0 8px 32px 0 rgba(78,205,196,0.13)'
         }}>
         <div className="gradient-text text-2xl font-bold">STREAMFREE</div>
-        {/* Hamburger button for mobile */}
         <button
           className="sm:hidden flex items-center px-3 py-2 border rounded text-white border-gray-400 focus:outline-none"
           onClick={() => setMobileNavOpen(v => !v)}
@@ -405,11 +379,9 @@ function AppContent() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
-        {/* Mobile nav overlay */}
         {mobileNavOpen && (
           <div className="fixed inset-0 bg-black bg-opacity-60 z-40 sm:hidden" onClick={() => setMobileNavOpen(false)}></div>
         )}
-        {/* Main Navigation Menu */}
         <nav
           className={
             `sm:flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-2 w-full sm:w-auto
@@ -490,8 +462,6 @@ function AppContent() {
             </button>
           ))}
         </nav>
-
-        {/* Search and User Actions */}
         <div className="flex items-center space-x-4" style={{ position: 'relative', zIndex: 99999 }}>
           <div className="flex items-center w-full" style={{ position: 'relative', zIndex: 99999 }}>
             <input
@@ -516,7 +486,6 @@ function AppContent() {
               </svg>
               <span className="hidden md:inline">Search</span>
             </button>
-            {/* Suggestions dropdown */}
             {showSuggestions && suggestions.length > 0 && (
               <ul className="absolute top-full left-0 w-full bg-gray-900 border border-gray-700 rounded-b max-h-56 overflow-y-auto shadow-2xl"
                   style={{ zIndex: 2147483647 }}>
@@ -527,7 +496,7 @@ function AppContent() {
                     onMouseDown={() => {
                       setSearchQuery(s);
                       setShowSuggestions(false);
-                      setDebouncedQuery(s); // Trigger search on suggestion click
+                      setDebouncedQuery(s);
                     }}
                   >
                     {s}
@@ -552,13 +521,10 @@ function AppContent() {
         <Routes>
           <Route path="/" element={
             <div>
-              {/* Only show HeroSection on Home tab */}
               {activeTab === 'home' && (
                 <HeroSection />
               )}
-              {/* Rest of the content */}
               <div className="p-4">
-                {/* Adstera Ad Space Below Hero Section */}
                 {activeTab === 'home' && (
                   <div
                     className="glass-bg text-center mb-6 border border-red-600"
@@ -573,16 +539,12 @@ function AppContent() {
                     <div id="container-5eb29bb96ecbe0057ffb3107b892cd13"></div>
                   </div>
                 )}
-
-                {/* Tab Content with enhanced transition */}
                 <div 
                   className={`transition-all duration-300 ease-in-out ${tabTransition}`}
-                  style={{ minHeight: '200px' }} // Prevent layout shift
+                  style={{ minHeight: '200px' }}
                 >
-                  {/* Tab content for Home */}
                   {activeTab === 'home' && (
                     <>
-                      {/* Random 20 Movies */}
                       <h2
                         className="mb-4 mt-8 fade-in text-center text-2xl md:text-3xl lg:text-4xl"
                         style={{
@@ -631,7 +593,6 @@ function AppContent() {
                           See more
                         </button>
                       </div>
-                      {/* Wallpapers Grid Section (moved here) */}
                       <h2
                         className="mb-4 mt-12 fade-in"
                         style={{
@@ -666,7 +627,6 @@ function AppContent() {
                           ))}
                         </div>
                       </div>
-                      {/* Random 20 TV Series */}
                       <h1
                         className="mb-4 mt-8 fade-in text-center text-2xl md:text-3xl lg:text-4xl"
                         style={{
@@ -718,11 +678,8 @@ function AppContent() {
                       </div>
                     </>
                   )}
-
-                  {/* Tab content for Movies */}
                   {activeTab === 'movies' && (
                     <>
-                      {/* Popular Movies Section */}
                       <h2 className="text-2xl font-bold mb-4 mt-8 text-red-600">Popular Movies</h2>
                       <div
                         className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 min-h-[420px]"
@@ -756,11 +713,8 @@ function AppContent() {
                       </div>
                     </>
                   )}
-
-                  {/* Tab content for TV Series */}
                   {activeTab === 'tv' && (
                     <>
-                      {/* TV Series Section */}
                       <h2 className="text-2xl font-bold mb-4 mt-8 text-red-600">TV Series</h2>
                       <div
                         className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 min-h-[420px]"
@@ -795,11 +749,8 @@ function AppContent() {
                       </div>
                     </>
                   )}
-
-                  {/* Tab content for Collections */}
                   {activeTab === 'collections' && (
                     <>
-                      {/* Popular Movie Collections Section */}
                       <h2 className="text-2xl font-bold mb-4 mt-8 text-red-600">Popular Movie Collections</h2>
                       <div
                         className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 min-h-[420px]"
@@ -842,14 +793,11 @@ function AppContent() {
                       </div>
                     </>
                   )}
-
-                  {/* Popup for collection movies and TV series episodes */}
                   {showCollectionPopup && (
                     <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
                       <div className="bg-gray-900 p-6 rounded-lg max-w-md w-full border border-red-600 relative overflow-y-auto" style={{maxHeight: '90vh'}}>
                         <h2 className="text-xl font-bold mb-4 text-red-600">{popupTitle}</h2>
                         <div className="mb-4">
-                          {/* If popupMovies is a TV series (array of seasons with episodes), render seasons/episodes */}
                           {popupMovies.length > 0 && popupMovies[0].episodes ? (
                             popupMovies.map((season, sidx) => (
                               <div key={sidx} className="mb-4">
@@ -871,7 +819,6 @@ function AppContent() {
                               </div>
                             ))
                           ) : (
-                            // Otherwise, render as movie collection links
                             <ul>
                               {popupMovies.map((movie, idx) => (
                                 <li key={idx} className="text-white mb-2">
@@ -885,7 +832,6 @@ function AppContent() {
                                       {movie.title || movie.name || `Movie ${idx + 1}`}
                                     </a>
                                   ) : (
-                                    // fallback for string or missing fields
                                     typeof movie === 'string' ? movie : 'No title'
                                   )}
                                 </li>
@@ -898,7 +844,7 @@ function AppContent() {
                           className="absolute top-2 right-2 text-gray-400 hover:text-red-600 text-2xl font-bold"
                           aria-label="Close"
                         >
-                          &times;
+                          ×
                         </button>
                       </div>
                     </div>
@@ -977,10 +923,9 @@ function AppContent() {
   );
 }
 
-// Wrap App with Router in index.js or at the root level if not already done
 function App() {
   return (
-    <Router>
+    <Router basename="/streamfree">
       <AppContent />
     </Router>
   );

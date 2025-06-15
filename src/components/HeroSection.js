@@ -76,7 +76,7 @@ function HeroSection() {
             <div
               className="absolute inset-0 w-full h-full bg-cover bg-center opacity-60 animate-pulse"
               style={{
-                backgroundImage: `url(${blockbuster.image})`,
+                backgroundImage: `url(${process.env.PUBLIC_URL + blockbuster.image})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 left: 0,
@@ -96,7 +96,7 @@ function HeroSection() {
               }}
             />
             <img
-              src={blockbuster.image}
+              src={process.env.PUBLIC_URL + blockbuster.image}
               alt={blockbuster.title}
               className="absolute inset-0 w-full h-full object-cover"
               style={{
