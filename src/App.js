@@ -794,58 +794,70 @@ function AppContent() {
                     </>
                   )}
                   {showCollectionPopup && (
-                    <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
-                      <div className="bg-gray-900 p-6 rounded-lg max-w-md w-full border border-red-600 relative overflow-y-auto" style={{maxHeight: '90vh'}}>
-                        <h2 className="text-xl font-bold mb-4 text-red-600">{popupTitle}</h2>
-                        <div className="mb-4">
-                          {popupMovies.length > 0 && popupMovies[0].episodes ? (
-                            popupMovies.map((season, sidx) => (
-                              <div key={sidx} className="mb-4">
-                                <h3 className="text-lg font-semibold text-blue-400 mb-2">Season {season.season}</h3>
-                                <ul>
-                                  {season.episodes.map((ep, eidx) => (
-                                    <li key={eidx} className="mb-2">
-                                      <a
-                                        href={ep.downloadLink}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-blue-400 underline hover:text-red-400"
-                                      >
-                                        Episode {ep.episode}: {ep.title}
-                                      </a>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
-                            ))
-                          ) : (
-                            <ul>
-                              {popupMovies.map((movie, idx) => (
-                                <li key={idx} className="text-white mb-2">
-                                  {typeof movie === 'object' && movie !== null && (movie.downloadLink || movie.name) ? (
-                                    <a
-                                      href={movie.downloadLink}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="text-blue-400 underline hover:text-red-400"
-                                    >
-                                      {movie.title || movie.name || `Movie ${idx + 1}`}
-                                    </a>
-                                  ) : (
-                                    typeof movie === 'string' ? movie : 'No title'
-                                  )}
-                                </li>
-                              ))}
-                            </ul>
-                        )}
-                        </div>
+                    <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50" style={{alignItems: 'flex-start'}}>
+                      <div
+                        className="backdrop-blur-xl bg-white/20 border border-white/30 shadow-2xl rounded-3xl w-full max-w-5xl relative overflow-y-auto p-0 mt-24"
+                        style={{ maxHeight: '80vh' }}
+                      >
+                        {/* Close Button */}
                         <button
                           onClick={() => setShowCollectionPopup(false)}
-                          className="absolute top-2 right-2 text-gray-400 hover:text-red-600 text-2xl font-bold"
+                          className="absolute top-4 right-4 text-gray-300 hover:text-red-500 text-3xl font-bold transition-colors z-10"
                           aria-label="Close"
+                          style={{ lineHeight: 1 }}
                         >
                           ×
                         </button>
+                        {/* TV Series Name */}
+                        <div className="px-8 pt-8 pb-2 text-center">
+                          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white drop-shadow-lg mb-2" style={{fontFamily: 'Montserrat, Arial, sans-serif'}}>
+                            {popupTitle.replace(/ - Seasons$/, '')}
+                          </h2>
+                          <div className="h-1 w-16 mx-auto bg-gradient-to-r from-red-500 via-yellow-400 to-blue-400 rounded-full mb-4" />
+                        </div>
+                        {/* Seasons Grid - dynamic columns, responsive */}
+                        <div
+                          className="grid gap-0 border-t border-white/30"
+                          style={{
+                            minHeight: 320,
+                            gridTemplateColumns: `repeat(${popupMovies.length}, minmax(0, 1fr))`
+                          }}
+                        >
+                          {popupMovies.map((season, colIdx) => (
+                            <div
+                              key={colIdx}
+                              className="flex flex-col border-r border-white/20 last:border-r-0 bg-white/10 hover:bg-white/20 transition-colors"
+                              style={{ minWidth: 0 }}
+                            >
+                              <div className="border-b border-white/20 text-center py-4 font-semibold text-lg text-blue-200 tracking-wider bg-gradient-to-r from-blue-900/60 to-blue-700/40 rounded-t-2xl" style={{fontFamily: 'Montserrat, Arial, sans-serif'}}>
+                                SEASON {season.season}
+                              </div>
+                              <div className="flex-1 px-3 py-4 overflow-y-auto">
+                                {season && season.episodes && season.episodes.length > 0 ? (
+                                  <ul className="space-y-2">
+                                    {season.episodes.map((ep, eidx) => (
+                                      <li key={eidx} className="">
+                                        <a
+                                          href={ep.downloadLink}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          className="block px-3 py-2 rounded-lg bg-white/20 hover:bg-gradient-to-r hover:from-red-400/80 hover:to-blue-400/80 text-white font-medium shadow-sm transition-all duration-200 text-sm md:text-base"
+                                          style={{textShadow: '0 1px 8px #0008'}}
+                                        >
+                                          <span className="font-bold text-yellow-300">Ep {ep.episode}:</span> {ep.title}
+                                        </a>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                ) : (
+                                  <div className="text-gray-300 text-xs text-center mt-4">No episodes</div>
+                                )}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                        {/* Responsive padding for mobile */}
+                        <div className="pb-8" />
                       </div>
                     </div>
                   )}
