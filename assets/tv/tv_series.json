@@ -1,0 +1,137 @@
+[
+  {
+    "id": 1,
+    "title": "Breaking Bad",
+    "description": "A high school chemistry teacher turned methamphetamine producer partners with a former student.",
+    "seasons": [
+      {
+        "season": 1,
+        "episodes": [
+          {
+            "episode": 1,
+            "title": "Pilot",
+            "downloadLink": "https://cinesubz.co/api-rwjdzuehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdruehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdrwjdzuehbwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0a/t3uahyhatr/"
+          },
+          {
+            "episode": 2,
+            "title": "Cat's in the Bag...",
+            "downloadLink": "https://cinesubz.co/api-rwjdzuehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdruehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdrwjdzuehbwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0a/gcr0wwlyuq/"
+          }
+        ]
+      }
+    ],
+    "image": "/assets/tv/breaking_bad.jpg",
+    "language": "English",
+    "genre": "Crime",
+    "type": "tv_series"
+  },
+  {
+    "id": 2,
+    "title": "Merlin",
+    "description": "Young warlock Merlin arrives in Camelot and becomes servant to Prince Arthur, secretly using magic to protect him.",
+    "seasons": [
+      {
+        "season": 1,
+        "episodes": [
+          {
+            "episode": 1,
+            "title": "The Dragon's Call",
+            "airDate": "2008-09-20",
+            "description": "Merlin arrives in Camelot and learns his destiny from the Great Dragon.",
+            "downloadLink": "https://cinesubz.co/api-rwjdzuehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdruehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdrwjdzuehbwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0a/cwt43wjwzb/"
+          },
+          {
+            "episode": 2,
+            "title": "Valiant",
+            "airDate": "2008-09-27",
+            "description": "Merlin must prove that a knight uses magic to cheat in a tournament.",
+            "downloadLink": "https://cinesubz.co/api-rwjdzuehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdruehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdrwjdzuehbwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0a/uy0kl1co91/"
+          },
+          {
+            "episode": 3,
+            "title": "The Mark of Nimueh",
+            "airDate": "2008-10-04",
+            "description": "A deadly plague spreads in Camelot, caused by magical means.",
+            "downloadLink": null
+          },
+          {
+            "episode": 4,
+            "title": "The Poisoned Chalice",
+            "airDate": "2008-10-11",
+            "description": "Merlin is poisoned after saving Arthur from a deadly trap.",
+            "downloadLink": null
+          },
+          {
+            "episode": 5,
+            "title": "Lancelot",
+            "airDate": "2008-10-18",
+            "description": "Merlin helps a brave peasant, Lancelot, become a knight.",
+            "downloadLink": null
+          },
+          {
+            "episode": 6,
+            "title": "A Remedy to Cure All Ills",
+            "airDate": "2008-10-25",
+            "description": "A mysterious healer threatens Gaius\u00e2\u20ac\u2122 position in Camelot.",
+            "downloadLink": null
+          },
+          {
+            "episode": 7,
+            "title": "The Gates of Avalon",
+            "airDate": "2008-11-01",
+            "description": "Arthur falls for a girl with dark secrets from another world.",
+            "downloadLink": null
+          },
+          {
+            "episode": 8,
+            "title": "The Beginning of the End",
+            "airDate": "2008-11-08",
+            "description": "Merlin protects a Druid boy being hunted in Camelot.",
+            "downloadLink": null
+          },
+          {
+            "episode": 9,
+            "title": "Excalibur",
+            "airDate": "2008-11-15",
+            "description": "Uther raises a dead knight with magic; Merlin must stop him.",
+            "downloadLink": null
+          },
+          {
+            "episode": 10,
+            "title": "The Moment of Truth",
+            "airDate": "2008-11-22",
+            "description": "Merlin returns to his village to protect it from bandits.",
+            "downloadLink": null
+          },
+          {
+            "episode": 11,
+            "title": "The Labyrinth of Gedref",
+            "airDate": "2008-11-29",
+            "description": "Arthur faces magical punishment after killing a unicorn.",
+            "downloadLink": null
+          },
+          {
+            "episode": 12,
+            "title": "To Kill the King",
+            "airDate": "2008-12-06",
+            "description": "Morgana considers assassinating Uther to save a friend.",
+            "downloadLink": null
+          },
+          {
+            "episode": 13,
+            "title": "Le Morte d'Arthur",
+            "airDate": "2008-12-13",
+            "description": "Arthur is mortally wounded, and Merlin risks everything to save him.",
+            "downloadLink": null
+          }
+        ]
+      }
+    ],
+    "totalEpisodes": 13,
+    "network": "BBC One",
+    "language": "English",
+    "genre": "Fantasy, Adventure",
+    "type": "tv_series",
+    "image": "/assets/tv/merlin.jpg"
+  }
+]
