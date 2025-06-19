@@ -809,39 +809,39 @@ function AppContent() {
                           ×
                         </button>
                         {/* TV Series Name */}
-                        <div className="px-8 pt-8 pb-2 text-center">
-                          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white drop-shadow-lg mb-2" style={{fontFamily: 'Montserrat, Arial, sans-serif'}}>
+                        <div className="px-4 sm:px-8 pt-8 pb-2 text-center">
+                          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white drop-shadow-lg mb-2" style={{fontFamily: 'Montserrat, Arial, sans-serif'}}>
                             {popupTitle.replace(/ - Seasons$/, '')}
                           </h2>
                           <div className="h-1 w-16 mx-auto bg-gradient-to-r from-red-500 via-yellow-400 to-blue-400 rounded-full mb-4" />
                         </div>
-                        {/* Seasons Grid - dynamic columns, responsive */}
+                        {/* Responsive Seasons Grid */}
                         <div
                           className="grid gap-0 border-t border-white/30"
                           style={{
                             minHeight: 320,
-                            gridTemplateColumns: `repeat(${popupMovies.length}, minmax(0, 1fr))`
+                            gridTemplateColumns: `repeat(${Math.max(1, Math.min(popupMovies.length, 4))}, minmax(0, 1fr))`
                           }}
                         >
                           {popupMovies.map((season, colIdx) => (
                             <div
                               key={colIdx}
-                              className="flex flex-col border-r border-white/20 last:border-r-0 bg-white/10 hover:bg-white/20 transition-colors"
-                              style={{ minWidth: 0 }}
+                              className="flex flex-col border-r border-white/20 last:border-r-0 bg-white/10 hover:bg-white/20 transition-colors min-w-0"
+                              style={{ width: '100%' }}
                             >
-                              <div className="border-b border-white/20 text-center py-4 font-semibold text-lg text-blue-200 tracking-wider bg-gradient-to-r from-blue-900/60 to-blue-700/40 rounded-t-2xl" style={{fontFamily: 'Montserrat, Arial, sans-serif'}}>
+                              <div className="border-b border-white/20 text-center py-4 font-semibold text-base sm:text-lg text-blue-200 tracking-wider bg-gradient-to-r from-blue-900/60 to-blue-700/40 rounded-t-2xl" style={{fontFamily: 'Montserrat, Arial, sans-serif'}}>
                                 SEASON {season.season}
                               </div>
-                              <div className="flex-1 px-3 py-4 overflow-y-auto">
+                              <div className="flex-1 px-2 sm:px-3 py-4 overflow-y-auto">
                                 {season && season.episodes && season.episodes.length > 0 ? (
                                   <ul className="space-y-2">
                                     {season.episodes.map((ep, eidx) => (
-                                      <li key={eidx} className="">
+                                      <li key={eidx}>
                                         <a
                                           href={ep.downloadLink}
                                           target="_blank"
                                           rel="noopener noreferrer"
-                                          className="block px-3 py-2 rounded-lg bg-white/20 hover:bg-gradient-to-r hover:from-red-400/80 hover:to-blue-400/80 text-white font-medium shadow-sm transition-all duration-200 text-sm md:text-base"
+                                          className="block px-2 sm:px-3 py-2 rounded-lg bg-white/20 hover:bg-gradient-to-r hover:from-red-400/80 hover:to-blue-400/80 text-white font-medium shadow-sm transition-all duration-200 text-xs sm:text-sm md:text-base"
                                           style={{textShadow: '0 1px 8px #0008'}}
                                         >
                                           <span className="font-bold text-yellow-300">Ep {ep.episode}:</span> {ep.title}
@@ -858,6 +858,23 @@ function AppContent() {
                         </div>
                         {/* Responsive padding for mobile */}
                         <div className="pb-8" />
+                        <style>{`
+                          @media (max-width: 640px) {
+                            .popup-seasons-grid {
+                              display: flex !important;
+                              flex-direction: column !important;
+                              gap: 0 !important;
+                            }
+                            .popup-seasons-grid > div {
+                              border-right: none !important;
+                              border-bottom: 1px solid rgba(255,255,255,0.2) !important;
+                              border-radius: 0 !important;
+                            }
+                            .popup-seasons-grid > div:last-child {
+                              border-bottom: none !important;
+                            }
+                          }
+                        `}</style>
                       </div>
                     </div>
                   )}
