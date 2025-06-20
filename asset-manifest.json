@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/streamfree/static/css/main.fc3e6a98.css",
-    "main.js": "/streamfree/static/js/main.d4636d10.js",
+    "main.css": "/streamfree/static/css/main.28d61621.css",
+    "main.js": "/streamfree/static/js/main.8fb6be64.js",
     "static/js/453.609770ff.chunk.js": "/streamfree/static/js/453.609770ff.chunk.js",
     "static/media/slick.svg": "/streamfree/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/streamfree/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/streamfree/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/streamfree/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/streamfree/index.html",
-    "main.fc3e6a98.css.map": "/streamfree/static/css/main.fc3e6a98.css.map",
-    "main.d4636d10.js.map": "/streamfree/static/js/main.d4636d10.js.map",
+    "main.28d61621.css.map": "/streamfree/static/css/main.28d61621.css.map",
+    "main.8fb6be64.js.map": "/streamfree/static/js/main.8fb6be64.js.map",
     "453.609770ff.chunk.js.map": "/streamfree/static/js/453.609770ff.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fc3e6a98.css",
-    "static/js/main.d4636d10.js"
+    "static/css/main.28d61621.css",
+    "static/js/main.8fb6be64.js"
   ]
 }
