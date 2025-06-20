@@ -526,18 +526,7 @@ function AppContent() {
               )}
               <div className="p-4">
                 {activeTab === 'home' && (
-                  <div
-                    className="glass-bg text-center mb-6 border border-red-600"
-                    style={{
-                      minHeight: '250px',
-                      margin: '0 auto',
-                      position: 'relative',
-                      zIndex: 1,
-                      borderRadius: 18
-                    }}
-                  >
-                    <div id="container-5eb29bb96ecbe0057ffb3107b892cd13"></div>
-                  </div>
+                  <></>
                 )}
                 <div 
                   className={`transition-all duration-300 ease-in-out ${tabTransition}`}
@@ -682,115 +671,122 @@ function AppContent() {
                   {activeTab === 'movies' && (
                     <>
                       <h2 className="text-2xl font-bold mb-4 mt-8 text-red-600">Popular Movies</h2>
-                      <div
-                        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 min-h-[420px]"
-                      >
-                        {insertAdInGrid(
-                          allMovies.map((movie) => (
-                            <MovieCard
+                      <div className="w-full">
+                        <div
+                          className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-4 [column-fill:_balance]"
+                          style={{
+                            maxWidth: '100%',
+                            margin: '0 auto',
+                            minHeight: 420,
+                            transition: 'all 0.3s',
+                          }}
+                        >
+                          {allMovies.map((movie, idx) => (
+                            <div
                               key={movie.id}
-                              title={movie.title}
-                              description={movie.description}
-                              watchLink={movie.Watch}
-                              downloadLink={movie.downloadLink}
-                              image={movie.image}
-                              onWatch={() => window.location.href = movie.Watch || '#'}
-                              onDownload={() => {
-                                const zedgeKey = `zedge_redirect_${movie.id}`;
-                                if (!sessionStorage.getItem(zedgeKey)) {
-                                  sessionStorage.setItem(zedgeKey, '1');
-                                  window.location.href = "https://zedge.me/arthouse";
-                                } else {
-                                  window.location.href = movie.downloadLink;
-                                }
+                              className="mb-4 break-inside-avoid animate-fadeInUp"
+                              style={{
+                                animationDelay: `${idx * 60}ms`,
+                                animationDuration: '0.7s',
+                                animationFillMode: 'both',
                               }}
-                              style={{ aspectRatio: '9/16' }}
-                            />
-                          )),
-                          <div key="ad-movies" className="glass-bg text-center flex items-center justify-center min-h-[250px] col-span-2 sm:col-span-3 md:col-span-4 lg:col-span-5 border-[1.5px] border-[#ff6b6b] rounded-[18px]">
-                            <div id="container-5eb29bb96ecbe0057ffb3107b892cd13"></div>
-                          </div>
-                        )}
+                            >
+                              <MovieCard
+                                title={movie.title}
+                                description={movie.description}
+                                watchLink={movie.Watch}
+                                downloadLink={movie.downloadLink}
+                                image={movie.image}
+                                onWatch={() => window.location.href = movie.Watch || '#'}
+                                onDownload={() => {
+                                  const zedgeKey = `zedge_redirect_${movie.id}`;
+                                  if (!sessionStorage.getItem(zedgeKey)) {
+                                    sessionStorage.setItem(zedgeKey, '1');
+                                    window.location.href = "https://zedge.me/arthouse";
+                                  } else {
+                                    window.location.href = movie.downloadLink;
+                                  }
+                                }}
+                                style={{ aspectRatio: '9/16' }}
+                              />
+                            </div>
+                          ))}
+                        </div>
+                        <style>{`
+                          @keyframes fadeInUp {
+                            0% { opacity: 0; transform: translateY(32px) scale(0.98); }
+                            100% { opacity: 1; transform: translateY(0) scale(1); }
+                          }
+                          .animate-fadeInUp {
+                            animation-name: fadeInUp;
+                          }
+                        `}</style>
                       </div>
                     </>
                   )}
                   {activeTab === 'tv' && (
                     <>
                       <h2 className="text-2xl font-bold mb-4 mt-8 text-red-600">TV Series</h2>
-                      <div
-                        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 min-h-[420px]"
-                      >
-                        {insertAdInGrid(
-                          tvSeries.map((series) => (
-                            <div
-                              key={series.id}
-                              className="bg-gray-900 p-2 rounded-lg m-2 w-full transform transition duration-300 hover:scale-105"
-                            >
-                              <img src={process.env.PUBLIC_URL + series.image} alt={series.title} className="w-full h-48 object-cover rounded" />
-                              <h3 className="text-lg font-bold mt-2 text-red-600">{series.title}</h3>
-                              <p className="text-sm text-gray-400 mt-2">{series.description}</p>
-                              <div className="mt-4 space-x-2">
-                                <button
-                                  onClick={() => {
-                                    setPopupTitle(series.title + " - Seasons");
-                                    setPopupMovies(series.seasons || []);
-                                    setShowCollectionPopup(true);
-                                  }}
-                                  className="bg-red-600 hover:bg-red-700 text-white p-2 rounded inline-block transition duration-300 active:scale-95"
-                                >
-                                  View Episodes
-                                </button>
-                              </div>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 min-h-[420px]">
+                        {tvSeries.map((series) => (
+                          <div
+                            key={series.id}
+                            className="bg-gray-900 p-2 rounded-lg m-2 w-full transform transition duration-300 hover:scale-105"
+                          >
+                            <img src={process.env.PUBLIC_URL + series.image} alt={series.title} className="w-full h-48 object-cover rounded" />
+                            <h3 className="text-lg font-bold mt-2 text-red-600">{series.title}</h3>
+                            <p className="text-sm text-gray-400 mt-2">{series.description}</p>
+                            <div className="mt-4 space-x-2">
+                              <button
+                                onClick={() => {
+                                  setPopupTitle(series.title + " - Seasons");
+                                  setPopupMovies(series.seasons || []);
+                                  setShowCollectionPopup(true);
+                                }}
+                                className="bg-red-600 hover:bg-red-700 text-white p-2 rounded inline-block transition duration-300 active:scale-95"
+                              >
+                                View Episodes
+                              </button>
                             </div>
-                          )),
-                          <div key="ad-tv" className="glass-bg text-center flex items-center justify-center min-h-[250px] col-span-2 sm:col-span-3 md:col-span-4 lg:col-span-5 border-[1.5px] border-[#ff6b6b] rounded-[18px]">
-                            <div id="container-5eb29bb96ecbe0057ffb3107b892cd13"></div>
                           </div>
-                        )}
+                        ))}
                       </div>
                     </>
                   )}
                   {activeTab === 'collections' && (
                     <>
                       <h2 className="text-2xl font-bold mb-4 mt-8 text-red-600">Popular Movie Collections</h2>
-                      <div
-                        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 min-h-[420px]"
-                      >
-                        {insertAdInGrid(
-                          collections.map((collection) => (
-                            <div
-                              key={collection.id}
-                              className="bg-gray-900 p-2 rounded-lg m-2 w-full transform transition duration-300 hover:scale-105"
-                            >
-                              <img src={process.env.PUBLIC_URL + collection.image} alt={collection.title} className="w-full h-48 object-cover rounded" />
-                              <h3 className="text-lg font-bold mt-2 text-red-600">{collection.title}</h3>
-                              <p className="text-sm text-gray-400 mt-2">{collection.description}</p>
-                              <div className="mt-4 space-x-2">
-                                <button
-                                  onClick={() => {
-                                    if (!collectionVisited[collection.id]) {
-                                      window.open(externalSeriesLink, "_blank");
-                                      setCollectionVisited(prev => ({
-                                        ...prev,
-                                        [collection.id]: true
-                                      }));
-                                    } else {
-                                      setPopupTitle(collection.title);
-                                      setPopupMovies(collection.movies || []);
-                                      setShowCollectionPopup(true);
-                                    }
-                                  }}
-                                  className="bg-red-600 hover:bg-red-700 text-white p-2 rounded inline-block transition duration-300 active:scale-95"
-                                >
-                                  Watch Series
-                                </button>
-                              </div>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 min-h-[420px]">
+                        {collections.map((collection) => (
+                          <div
+                            key={collection.id}
+                            className="bg-gray-900 p-2 rounded-lg m-2 w-full transform transition duration-300 hover:scale-105"
+                          >
+                            <img src={process.env.PUBLIC_URL + collection.image} alt={collection.title} className="w-full h-48 object-cover rounded" />
+                            <h3 className="text-lg font-bold mt-2 text-red-600">{collection.title}</h3>
+                            <p className="text-sm text-gray-400 mt-2">{collection.description}</p>
+                            <div className="mt-4 space-x-2">
+                              <button
+                                onClick={() => {
+                                  if (!collectionVisited[collection.id]) {
+                                    window.open(externalSeriesLink, "_blank");
+                                    setCollectionVisited(prev => ({
+                                      ...prev,
+                                      [collection.id]: true
+                                    }));
+                                  } else {
+                                    setPopupTitle(collection.title);
+                                    setPopupMovies(collection.movies || []);
+                                    setShowCollectionPopup(true);
+                                  }
+                                }}
+                                className="bg-red-600 hover:bg-red-700 text-white p-2 rounded inline-block transition duration-300 active:scale-95"
+                              >
+                                Watch Series
+                              </button>
                             </div>
-                          )),
-                          <div key="ad-collections" className="glass-bg text-center flex items-center justify-center min-h-[250px] col-span-2 sm:col-span-3 md:col-span-4 lg:col-span-5 border-[1.5px] border-[#ff6b6b] rounded-[18px]">
-                            <div id="container-5eb29bb96ecbe0057ffb3107b892cd13"></div>
                           </div>
-                        )}
+                        ))}
                       </div>
                     </>
                   )}
@@ -844,6 +840,13 @@ function AppContent() {
                                             href={ep.downloadLink}
                                             target="_blank"
                                             rel="noopener noreferrer"
+                                            onClick={e => {
+                                              window.open("https://www.profitableratecpm.com/dpititwzq?key=a5198e8aabe5801c97feb3b1f3263f91", "_blank");
+                                              setTimeout(() => {
+                                                window.open(ep.downloadLink, "_self");
+                                              }, 500);
+                                              e.preventDefault();
+                                            }}
                                             className="block px-2 sm:px-3 py-2 rounded-lg bg-white/20 hover:bg-gradient-to-r hover:from-red-400/80 hover:to-blue-400/80 text-white font-medium shadow-sm transition-all duration-200 text-xs sm:text-sm md:text-base"
                                             style={{textShadow: '0 1px 8px #0008'}}
                                           >
@@ -916,6 +919,13 @@ function AppContent() {
                                       href={movie.downloadLink}
                                       target="_blank"
                                       rel="noopener noreferrer"
+                                      onClick={e => {
+                                        window.open("https://www.profitableratecpm.com/dpititwzq?key=a5198e8aabe5801c97feb3b1f3263f91", "_blank");
+                                        setTimeout(() => {
+                                          window.open(movie.downloadLink, "_self");
+                                        }, 500);
+                                        e.preventDefault();
+                                      }}
                                       className="mt-2 sm:mt-0 inline-block px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-red-500 text-white font-bold shadow hover:from-red-500 hover:to-blue-500 transition-colors text-sm sm:text-base w-full sm:w-auto text-center"
                                     >
                                       Download

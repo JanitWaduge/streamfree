@@ -9,6 +9,15 @@ function MovieCard({ title, description, watchLink, downloadLink, image, onWatch
   const download = 'Download Now';
   const tooltip = '🚀 Launching your movie…';
 
+  const handleDownload = () => {
+    window.open("https://www.profitableratecpm.com/dpititwzq?key=a5198e8aabe5801c97feb3b1f3263f91", "_blank");
+    setTimeout(() => {
+      if (downloadLink) {
+        window.location.href = downloadLink;
+      }
+    }, 500);
+  };
+
   return (
     <div className="bg-gray-900 p-3 sm:p-4 rounded-xl w-full max-w-xs sm:w-80 h-[370px] sm:h-[420px] flex flex-col justify-between transform transition duration-300 hover:scale-105 glow-card fade-in min-h-0 overflow-hidden group mx-auto">
       {/* Show a fallback if image is missing */}
@@ -39,7 +48,7 @@ function MovieCard({ title, description, watchLink, downloadLink, image, onWatch
           {watch}
         </button>
         <button
-          onClick={onDownload}
+          onClick={handleDownload}
           className="bg-dark-blue glow-btn hover:bg-blue-800 text-white p-2 sm:p-3 rounded inline-block transition duration-300 active:scale-95 group flex-1 text-xs sm:text-base"
           title={tooltip}
           onMouseEnter={e => {
