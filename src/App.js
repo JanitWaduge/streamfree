@@ -795,55 +795,143 @@ function AppContent() {
                     </>
                   )}
                   {showCollectionPopup && (
-                    <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50" style={{alignItems: 'flex-start'}}>
-                      <div
-                        className="backdrop-blur-xl bg-white/20 border border-white/30 shadow-2xl rounded-3xl w-full max-w-md sm:max-w-lg relative overflow-y-auto p-0 mt-24"
-                        style={{ maxHeight: '80vh' }}
-                      >
-                        {/* Close Button */}
-                        <button
-                          onClick={() => setShowCollectionPopup(false)}
-                          className="absolute top-4 right-4 text-gray-300 hover:text-red-500 text-3xl font-bold transition-colors z-10"
-                          aria-label="Close"
-                          style={{ lineHeight: 1 }}
+                    popupMovies.length > 0 && popupMovies[0].episodes ? (
+                      // TV Series popup: show seasons and episodes
+                      <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50" style={{alignItems: 'flex-start'}}>
+                        <div
+                          className="backdrop-blur-xl bg-white/20 border border-white/30 shadow-2xl rounded-3xl w-full max-w-5xl relative overflow-y-auto p-0 mt-24"
+                          style={{ maxHeight: '80vh' }}
                         >
-                          ×
-                        </button>
-                        {/* Collection Title */}
-                        <div className="px-4 sm:px-8 pt-8 pb-2 text-center">
-                          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white drop-shadow-lg mb-2" style={{fontFamily: 'Montserrat, Arial, sans-serif'}}>
-                            {popupTitle}
-                          </h2>
-                          <div className="h-1 w-16 mx-auto bg-gradient-to-r from-red-500 via-yellow-400 to-blue-400 rounded-full mb-4" />
-                        </div>
-                        {/* Movie List */}
-                        <div className="px-4 pb-8 flex flex-col gap-4">
-                          {popupMovies.length > 0 ? (
-                            popupMovies.map((movie, idx) => (
-                              <div key={idx} className="flex flex-col sm:flex-row items-center justify-between bg-white/20 rounded-xl shadow p-4 gap-2">
-                                <span className="text-white font-semibold text-base sm:text-lg text-center sm:text-left w-full sm:w-auto" style={{wordBreak: 'break-word'}}>
-                                  {movie.title || movie.name || `Movie ${idx + 1}`}
-                                </span>
-                                {movie.downloadLink ? (
-                                  <a
-                                    href={movie.downloadLink}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="mt-2 sm:mt-0 inline-block px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-red-500 text-white font-bold shadow hover:from-red-500 hover:to-blue-500 transition-colors text-sm sm:text-base w-full sm:w-auto text-center"
-                                  >
-                                    Download
-                                  </a>
-                                ) : (
-                                  <span className="text-gray-300 text-xs ml-2">No link</span>
-                                )}
+                          {/* Close Button */}
+                          <button
+                            onClick={() => setShowCollectionPopup(false)}
+                            className="absolute top-4 right-4 text-gray-300 hover:text-red-500 text-3xl font-bold transition-colors z-10"
+                            aria-label="Close"
+                            style={{ lineHeight: 1 }}
+                          >
+                            ×
+                          </button>
+                          {/* TV Series Name */}
+                          <div className="px-4 sm:px-8 pt-8 pb-2 text-center">
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white drop-shadow-lg mb-2" style={{fontFamily: 'Montserrat, Arial, sans-serif'}}>
+                              {popupTitle.replace(/ - Seasons$/, '')}
+                            </h2>
+                            <div className="h-1 w-16 mx-auto bg-gradient-to-r from-red-500 via-yellow-400 to-blue-400 rounded-full mb-4" />
+                          </div>
+                          {/* Responsive Seasons Grid */}
+                          <div
+                            className="grid gap-0 border-t border-white/30"
+                            style={{
+                              minHeight: 320,
+                              gridTemplateColumns: `repeat(${Math.max(1, Math.min(popupMovies.length, 4))}, minmax(0, 1fr))`
+                            }}
+                          >
+                            {popupMovies.map((season, colIdx) => (
+                              <div
+                                key={colIdx}
+                                className="flex flex-col border-r border-white/20 last:border-r-0 bg-white/10 hover:bg-white/20 transition-colors min-w-0"
+                                style={{ width: '100%' }}
+                              >
+                                <div className="border-b border-white/20 text-center py-4 font-semibold text-base sm:text-lg text-blue-200 tracking-wider bg-gradient-to-r from-blue-900/60 to-blue-700/40 rounded-t-2xl" style={{fontFamily: 'Montserrat, Arial, sans-serif'}}>
+                                  SEASON {season.season}
+                                </div>
+                                <div className="flex-1 px-2 sm:px-3 py-4 overflow-y-auto">
+                                  {season && season.episodes && season.episodes.length > 0 ? (
+                                    <ul className="space-y-2">
+                                      {season.episodes.map((ep, eidx) => (
+                                        <li key={eidx}>
+                                          <a
+                                            href={ep.downloadLink}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="block px-2 sm:px-3 py-2 rounded-lg bg-white/20 hover:bg-gradient-to-r hover:from-red-400/80 hover:to-blue-400/80 text-white font-medium shadow-sm transition-all duration-200 text-xs sm:text-sm md:text-base"
+                                            style={{textShadow: '0 1px 8px #0008'}}
+                                          >
+                                            <span className="font-bold text-yellow-300">Ep {ep.episode}:</span> {ep.title}
+                                          </a>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  ) : (
+                                    <div className="text-gray-300 text-xs text-center mt-4">No episodes</div>
+                                  )}
+                                </div>
                               </div>
-                            ))
-                          ) : (
-                            <div className="text-gray-300 text-center py-8">No movies found in this collection.</div>
-                          )}
+                            ))}
+                          </div>
+                          {/* Responsive padding for mobile */}
+                          <div className="pb-8" />
+                          <style>{`
+                            @media (max-width: 640px) {
+                              .popup-seasons-grid {
+                                display: flex !important;
+                                flex-direction: column !important;
+                                gap: 0 !important;
+                              }
+                              .popup-seasons-grid > div {
+                                border-right: none !important;
+                                border-bottom: 1px solid rgba(255,255,255,0.2) !important;
+                                border-radius: 0 !important;
+                              }
+                              .popup-seasons-grid > div:last-child {
+                                border-bottom: none !important;
+                              }
+                            }
+                          `}</style>
                         </div>
                       </div>
-                    </div>
+                    ) : (
+                      // Movie collections popup
+                      <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50" style={{alignItems: 'flex-start'}}>
+                        <div
+                          className="backdrop-blur-xl bg-white/20 border border-white/30 shadow-2xl rounded-3xl w-full max-w-md sm:max-w-lg relative overflow-y-auto p-0 mt-24"
+                          style={{ maxHeight: '80vh' }}
+                        >
+                          {/* Close Button */}
+                          <button
+                            onClick={() => setShowCollectionPopup(false)}
+                            className="absolute top-4 right-4 text-gray-300 hover:text-red-500 text-3xl font-bold transition-colors z-10"
+                            aria-label="Close"
+                            style={{ lineHeight: 1 }}
+                          >
+                            ×
+                          </button>
+                          {/* Collection Title */}
+                          <div className="px-4 sm:px-8 pt-8 pb-2 text-center">
+                            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white drop-shadow-lg mb-2" style={{fontFamily: 'Montserrat, Arial, sans-serif'}}>
+                              {popupTitle}
+                            </h2>
+                            <div className="h-1 w-16 mx-auto bg-gradient-to-r from-red-500 via-yellow-400 to-blue-400 rounded-full mb-4" />
+                          </div>
+                          {/* Movie List */}
+                          <div className="px-4 pb-8 flex flex-col gap-4">
+                            {popupMovies.length > 0 ? (
+                              popupMovies.map((movie, idx) => (
+                                <div key={idx} className="flex flex-col sm:flex-row items-center justify-between bg-white/20 rounded-xl shadow p-4 gap-2">
+                                  <span className="text-white font-semibold text-base sm:text-lg text-center sm:text-left w-full sm:w-auto" style={{wordBreak: 'break-word'}}>
+                                    {movie.title || movie.name || `Movie ${idx + 1}`}
+                                  </span>
+                                  {movie.downloadLink ? (
+                                    <a
+                                      href={movie.downloadLink}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="mt-2 sm:mt-0 inline-block px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-red-500 text-white font-bold shadow hover:from-red-500 hover:to-blue-500 transition-colors text-sm sm:text-base w-full sm:w-auto text-center"
+                                    >
+                                      Download
+                                    </a>
+                                  ) : (
+                                    <span className="text-gray-300 text-xs ml-2">No link</span>
+                                  )}
+                                </div>
+                              ))
+                            ) : (
+                              <div className="text-gray-300 text-center py-8">No movies found in this collection.</div>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    )
                   )}
                 </div>
               </div>
