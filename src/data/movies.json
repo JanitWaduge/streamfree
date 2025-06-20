@@ -218,5 +218,93 @@
     "language": "English",
     "genre": "Sci-Fi",
     "type": "movie"
+  },
+  {
+    "id": 23,
+    "title": "Predator (1987)",
+    "description": "An elite paramilitary rescue team in a Central American jungle encounters a technologically advanced alien hunter who stalks them one by one.", 
+    "Watch": "",
+    "downloadLink": "https://drive2.cscloud12.online/server1/qmsyfzbjcavekxfuwqbi/Movies/2021-09-18/CineSubz.com%20-%20Predator.1987.720p.BluRay?ext=mp4",
+    "image": "assets/Movies/23.jpg",
+    "language": "English",
+    "genre": "Sci‑Fi/Action",
+    "type": "movie"
+  },
+  {
+    "id": 24,
+    "title": "Predator 2 (1990)",
+    "description": "In a dystopian Los Angeles during a brutal heatwave, a local cop uncovers that the mysterious string of gang murders is the work of another Predator.", 
+    "Watch": "",
+    "downloadLink": "https://drive2.cscloud12.online/server1/qmsyfzbjcavekxfuwqbi/Movies/2021-09-18/CineSubz.com%20-%20Predator.2.1990.720p.BrRip?ext=mp4",
+    "image": "assets/Movies/24.jpg",
+    "language": "English",
+    "genre": "Sci‑Fi/Action",
+    "type": "movie"
+  },
+  {
+    "id": 25,
+    "title": "Alien vs. Predator (2004)",
+    "description": "A team of explorers discovers a hidden pyramid in Antarctica, where Predators and Xenomorphs fight and humans get caught in the crossfire.", 
+    "Watch": "",
+    "downloadLink": "https://drive2.cscloud12.online/server2/lirrndwmwxoicpzwhmqg/CSMovies/Alien.vs.Predator.2004.BrRip-%5BCineSubz.co%5D-720p?ext=mp4",
+    "image": "assets/Movies/25.jpg",
+    "language": "English",
+    "genre": "Sci‑Fi/Horror",
+    "type": "movie"
+  },
+  {
+    "id": 26,
+    "title": "Aliens vs. Predator: Requiem (2007)",
+    "description": "A Predator and Xenomorph hybrid—Predalien—escapes in Colorado, unleashing horror as both species wreak havoc in a small town.", 
+    "Watch": "",
+    "downloadLink": "https://drive2.cscloud12.online/server1/qmsyfzbjcavekxfuwqbi/Movies/2021-09-18/www.CineSubz.com%20-%20Alien.Vs.Predator-Requiem%5B2007%5D%5BUnrated.Edition%5DDvDri?ext=mp4",
+    "image": "assets/Movies/26.jpg",
+    "language": "English",
+    "genre": "Sci‑Fi/Horror",
+    "type": "movie"
+  },
+  {
+    "id": 27,
+    "title": "Predators (2010)",
+    "description": "A group of elite killers wake up on an alien game preserve planet where they are hunted by various types of Predators.", 
+    "Watch": "",
+    "downloadLink": "https://drive2.cscloud12.online/server4/new/Predators.2010.BluRay-%5BCineSubz.co%5D-720p?ext=mp4",
+    "image": "assets/Movies/27.jpg",
+    "language": "English",
+    "genre": "Sci‑Fi/Action",
+    "type": "movie"
+  },
+  {
+    "id": 28,
+    "title": "The Predator (2018)",
+    "description": "After a Predator ship crashes to Earth, a group of ex-soldiers and a scientist face off against a genetically enhanced Predator who can blend human DNA.", 
+    "Watch": "",
+    "downloadLink": "https://drive2.cscloud12.online/server1/qmsyfzbjcavekxfuwqbi/Movies/2021-09-18/CineSubz.com%20-%20The.Predator.2018.720p.BluRay.mkv",
+    "image": "assets/Movies/28.jpg",
+    "language": "English",
+    "genre": "Sci‑Fi/Action",
+    "type": "movie"
+  },
+  {
+    "id": 29,
+    "title": "Prey (2022)",
+    "description": "Set in 1719, a Comanche hunter must protect her tribe from one of the first Predators to visit Earth.", 
+    "Watch": "",
+    "downloadLink": "https://t.me/cinesubzfilestorebot?start=Cine_Subz_23014",
+    "image": "assets/Movies/29.jpg",
+    "language": "English",
+    "genre": "Sci‑Fi/Action",
+    "type": "movie"
+  },
+  {
+    "id": 30,
+    "title": "Predator: Killer of Killers (2025)",
+    "description": "An animated anthology exploring Predators hunting across history—from Vikings to WWII.", 
+    "Watch": "",
+    "downloadLink": "https://drive2.cscloud12.online/server5/202506/Predator.Killer.of.Killers.2025.WEBRip-%5BCineSubz.co%5D-720p?ext=mp4",
+    "image": "assets/Movies/30.jpg",
+    "language": "English",
+    "genre": "Sci‑Fi/Animation",
+    "type": "movie"
   }
 ]
