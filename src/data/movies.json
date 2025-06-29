@@ -306,5 +306,16 @@
     "language": "English",
     "genre": "Sci‑Fi/Animation",
     "type": "movie"
+  },
+  {
+    "id": 31,
+    "title": "Infection (2019)",
+    "description": "A man races against time to save his son when a new rabies virus turns people into rampaging zombies in Venezuela.", 
+    "Watch": "",
+    "downloadLink": "https://cinesubz.lk/api-rwjdzuehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdruehbdrwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0auehbdrwjdzuehbwjdzuehbdzjyvxo2bhh0azjyvxo2bhh0a/khvclvirqd/",
+    "image": "assets/Movies/31.jpg",
+    "language": "English",
+    "genre": "Horror",
+    "type": "movie"
   }
 ]
